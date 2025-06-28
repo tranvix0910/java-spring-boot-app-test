@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout('Giới thiệu - JavaApp Pro', ~{::section})">
+<head>
+    <title>Giới thiệu - JavaApp Pro</title>
+</head>
+<body>
+    <section>
+        <!-- Header Section -->
+        <div class="text-center text-white py-5">
+            <div class="container">
+                <i class="fas fa-info-circle fa-4x mb-3"></i>
+                <h1 class="display-4 fw-bold mb-3">Giới thiệu về JavaApp Pro</h1>
+                <p class="lead">Ứng dụng web Java hiện đại và chuyên nghiệp</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container py-5">
+            <div class="row g-5">
+                <!-- About Info -->
+                <div class="col-lg-8">
+                    <div class="card border-0 h-100">
+                        <div class="card-body p-5">
+                            <h2 class="fw-bold mb-4">
+                                <i class="fas fa-rocket text-primary me-3"></i>
+                                Về dự án này
+                            </h2>
+                            
+                            <p class="fs-5 text-muted mb-4">
+                                JavaApp Pro là một ứng dụng web được phát triển bằng Spring Boot framework, 
+                                thể hiện các tính năng và khả năng của một ứng dụng Java hiện đại.
+                            </p>
+
+                            <div class="row g-4 mb-5">
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-shrink-0">
+                                            <div class="rounded-circle bg-primary p-3 text-white">
+                                                <i class="fas fa-code"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <h5 class="fw-bold">Clean Code</h5>
+                                            <p class="text-muted mb-0">
+                                                Mã nguồn được viết theo chuẩn, dễ đọc và bảo trì.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-shrink-0">
+                                            <div class="rounded-circle bg-success p-3 text-white">
+                                                <i class="fas fa-mobile-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <h5 class="fw-bold">Responsive</h5>
+                                            <p class="text-muted mb-0">
+                                                Giao diện tương thích hoàn hảo trên mọi thiết bị.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="fw-bold mb-4">Tính năng chính</h3>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-3"></i>
+                                        <span>Quản lý người dùng</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-3"></i>
+                                        <span>Giao diện hiện đại</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-3"></i>
+                                        <span>RESTful API</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-3"></i>
+                                        <span>Form validation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="col-lg-4">
+                    <div class="card border-0 h-100">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4 text-center">
+                                <i class="fas fa-tools text-primary me-2"></i>
+                                Công nghệ
+                            </h3>
+                            
+                            <div class="tech-stack">
+                                <div class="tech-item mb-4 p-3 rounded" style="background: #f8f9fa;">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-java fa-2x me-3" style="color: #f89820;"></i>
+                                        <div>
+                                            <h6 class="fw-bold mb-1">Java 11+</h6>
+                                            <p class="text-muted small mb-0">Ngôn ngữ lập trình chính</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tech-item mb-4 p-3 rounded" style="background: #f8f9fa;">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-leaf fa-2x me-3" style="color: #6db33f;"></i>
+                                        <div>
+                                            <h6 class="fw-bold mb-1">Spring Boot 2.7+</h6>
+                                            <p class="text-muted small mb-0">Framework Java hiện đại</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tech-item mb-4 p-3 rounded" style="background: #f8f9fa;">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-code fa-2x me-3" style="color: #005f0f;"></i>
+                                        <div>
+                                            <h6 class="fw-bold mb-1">Thymeleaf</h6>
+                                            <p class="text-muted small mb-0">Template engine</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tech-item mb-4 p-3 rounded" style="background: #f8f9fa;">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-bootstrap fa-2x me-3" style="color: #7952b3;"></i>
+                                        <div>
+                                            <h6 class="fw-bold mb-1">Bootstrap 5</h6>
+                                            <p class="text-muted small mb-0">CSS framework</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tech-item p-3 rounded" style="background: #f8f9fa;">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-apache fa-2x me-3" style="color: #d22128;"></i>
+                                        <div>
+                                            <h6 class="fw-bold mb-1">Maven</h6>
+                                            <p class="text-muted small mb-0">Build tool</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="container pb-5">
+            <div class="card border-0" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <div class="card-body p-5 text-white text-center">
+                    <h3 class="fw-bold mb-5">Thống kê dự án</h3>
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <i class="fas fa-file-code fa-3x mb-3"></i>
+                                <h4 class="fw-bold">15+</h4>
+                                <p class="mb-0">Files</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <i class="fas fa-code-branch fa-3x mb-3"></i>
+                                <h4 class="fw-bold">500+</h4>
+                                <p class="mb-0">Lines of Code</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <i class="fas fa-palette fa-3x mb-3"></i>
+                                <h4 class="fw-bold">Modern</h4>
+                                <p class="mb-0">UI/UX Design</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <i class="fas fa-rocket fa-3x mb-3"></i>
+                                <h4 class="fw-bold">Fast</h4>
+                                <p class="mb-0">Performance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Getting Started -->
+        <div class="container pb-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-white mb-3">
+                    <i class="fas fa-play-circle me-3"></i>Bắt đầu sử dụng
+                </h2>
+                <p class="lead text-white-50">Hướng dẫn nhanh để chạy ứng dụng</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="step-number mb-3">
+                                <span class="badge bg-primary fs-4 p-3 rounded-circle">1</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Clone Repository</h5>
+                            <code class="bg-light p-2 rounded d-block">git clone [repository-url]</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="step-number mb-3">
+                                <span class="badge bg-success fs-4 p-3 rounded-circle">2</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Run Application</h5>
+                            <code class="bg-light p-2 rounded d-block">./mvnw spring-boot:run</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="step-number mb-3">
+                                <span class="badge bg-warning fs-4 p-3 rounded-circle">3</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Open Browser</h5>
+                            <code class="bg-light p-2 rounded d-block">localhost:8080</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 

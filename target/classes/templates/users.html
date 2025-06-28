@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout('Quản lý người dùng - JavaApp Pro', ~{::section})">
+<head>
+    <title>Quản lý người dùng - JavaApp Pro</title>
+</head>
+<body>
+    <section>
+        <!-- Header Section -->
+        <div class="text-center text-white py-5">
+            <div class="container">
+                <i class="fas fa-users fa-4x mb-3"></i>
+                <h1 class="display-4 fw-bold mb-3">Quản lý người dùng</h1>
+                <p class="lead">Thêm và quản lý thông tin người dùng trong hệ thống</p>
+            </div>
+        </div>
+
+        <div class="container py-5">
+            <!-- Add User Section -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6">
+                    <div class="card border-0">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4">
+                                <i class="fas fa-user-plus text-primary me-3"></i>
+                                Thêm người dùng mới
+                            </h3>
+                            
+                            <form th:action="@{/users/add}" method="post" class="needs-validation" novalidate>
+                                <div class="mb-4">
+                                    <label for="name" class="form-label fw-bold">
+                                        <i class="fas fa-user me-2"></i>Họ và tên
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control form-control-lg" 
+                                           id="name" 
+                                           name="name" 
+                                           placeholder="Nhập họ và tên..."
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Vui lòng nhập họ và tên.
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="email" class="form-label fw-bold">
+                                        <i class="fas fa-envelope me-2"></i>Email
+                                    </label>
+                                    <input type="email" 
+                                           class="form-control form-control-lg" 
+                                           id="email" 
+                                           name="email" 
+                                           placeholder="Nhập địa chỉ email..."
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Vui lòng nhập email hợp lệ.
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-plus me-2"></i>Thêm người dùng
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Stats -->
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="glass-card p-4 text-center text-white">
+                                <i class="fas fa-users fa-3x mb-3"></i>
+                                <h3 class="fw-bold" th:text="${#lists.size(users)}">0</h3>
+                                <p class="mb-0">Tổng người dùng</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="glass-card p-4 text-center text-white">
+                                <i class="fas fa-user-check fa-3x mb-3"></i>
+                                <h3 class="fw-bold">Active</h3>
+                                <p class="mb-0">Trạng thái</p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card border-0">
+                                <div class="card-body p-4 text-center">
+                                    <i class="fas fa-chart-line text-success fa-2x mb-3"></i>
+                                    <h5 class="fw-bold">Quản lý hiệu quả</h5>
+                                    <p class="text-muted mb-0">
+                                        Hệ thống cho phép thêm, xóa và quản lý thông tin người dùng một cách dễ dàng.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users List -->
+            <div class="card border-0">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-bold mb-0">
+                            <i class="fas fa-list text-primary me-3"></i>
+                            Danh sách người dùng
+                        </h3>
+                        <span class="badge bg-primary fs-6 px-3 py-2" th:text="${#lists.size(users)} + ' người dùng'">0 người dùng</span>
+                    </div>
+
+                    <div th:if="${#lists.isEmpty(users)}" class="text-center py-5">
+                        <i class="fas fa-user-slash fa-4x text-muted mb-3"></i>
+                        <h4 class="text-muted">Chưa có người dùng nào</h4>
+                        <p class="text-muted">Hãy thêm người dùng đầu tiên bằng form bên trên.</p>
+                    </div>
+
+                    <div th:if="${!#lists.isEmpty(users)}" class="row g-3">
+                        <div th:each="user, stat : ${users}" class="col-lg-6 col-xl-4">
+                            <div class="card border-0 h-100" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="avatar-circle me-3">
+                                            <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                                 style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea, #764ba2);">
+                                                <i class="fas fa-user text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h5 class="fw-bold mb-1" th:text="${user.name}">Tên người dùng</h5>
+                                            <p class="text-muted small mb-0">
+                                                <i class="fas fa-envelope me-1"></i>
+                                                <span th:text="${user.email}">email@example.com</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">
+                                            <i class="fas fa-hash me-1"></i>
+                                            ID: <span th:text="${user.id}">1</span>
+                                        </small>
+                                        <form th:action="@{/users/delete/{id}(id=${user.id})}" method="post" style="display: inline;">
+                                            <button type="submit" 
+                                                    class="btn btn-outline-danger btn-sm"
+                                                    onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="row g-4 mt-4">
+                <div class="col-md-6">
+                    <div class="card border-0 text-center">
+                        <div class="card-body p-4">
+                            <i class="fas fa-download fa-3x text-primary mb-3"></i>
+                            <h5 class="fw-bold">Export Data</h5>
+                            <p class="text-muted mb-3">Xuất danh sách người dùng ra file CSV hoặc Excel</p>
+                            <button class="btn btn-outline-primary" disabled>
+                                <i class="fas fa-file-export me-2"></i>Sắp có
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card border-0 text-center">
+                        <div class="card-body p-4">
+                            <i class="fas fa-search fa-3x text-success mb-3"></i>
+                            <h5 class="fw-bold">Search Users</h5>
+                            <p class="text-muted mb-3">Tìm kiếm người dùng theo tên hoặc email</p>
+                            <button class="btn btn-outline-success" disabled>
+                                <i class="fas fa-search me-2"></i>Sắp có
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Form validation
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+</html> 

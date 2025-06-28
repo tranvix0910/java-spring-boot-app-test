@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout('Liên hệ - JavaApp Pro', ~{::section})">
+<head>
+    <title>Liên hệ - JavaApp Pro</title>
+</head>
+<body>
+    <section>
+        <!-- Header Section -->
+        <div class="text-center text-white py-5">
+            <div class="container">
+                <i class="fas fa-envelope fa-4x mb-3"></i>
+                <h1 class="display-4 fw-bold mb-3">Liên hệ với chúng tôi</h1>
+                <p class="lead">Gửi tin nhắn và nhận được phản hồi nhanh chóng</p>
+            </div>
+        </div>
+
+        <div class="container py-5">
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-8">
+                    <div class="card border-0">
+                        <div class="card-body p-5">
+                            <h3 class="fw-bold mb-4">
+                                <i class="fas fa-paper-plane text-primary me-3"></i>
+                                Gửi tin nhắn
+                            </h3>
+                            
+                            <form th:action="@{/contact/send}" method="post" class="needs-validation" novalidate>
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label fw-bold">
+                                            <i class="fas fa-user me-2"></i>Họ và tên *
+                                        </label>
+                                        <input type="text" 
+                                               class="form-control form-control-lg" 
+                                               id="name" 
+                                               name="name" 
+                                               placeholder="Nhập họ và tên..."
+                                               required>
+                                        <div class="invalid-feedback">
+                                            Vui lòng nhập họ và tên.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label fw-bold">
+                                            <i class="fas fa-envelope me-2"></i>Email *
+                                        </label>
+                                        <input type="email" 
+                                               class="form-control form-control-lg" 
+                                               id="email" 
+                                               name="email" 
+                                               placeholder="Nhập địa chỉ email..."
+                                               required>
+                                        <div class="invalid-feedback">
+                                            Vui lòng nhập email hợp lệ.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label fw-bold">
+                                            <i class="fas fa-phone me-2"></i>Số điện thoại
+                                        </label>
+                                        <input type="tel" 
+                                               class="form-control form-control-lg" 
+                                               id="phone" 
+                                               name="phone" 
+                                               placeholder="Nhập số điện thoại...">
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="subject" class="form-label fw-bold">
+                                            <i class="fas fa-tag me-2"></i>Chủ đề *
+                                        </label>
+                                        <select class="form-select form-select-lg" id="subject" name="subject" required>
+                                            <option value="">Chọn chủ đề...</option>
+                                            <option value="general">Câu hỏi chung</option>
+                                            <option value="support">Hỗ trợ kỹ thuật</option>
+                                            <option value="feedback">Phản hồi</option>
+                                            <option value="bug">Báo lỗi</option>
+                                            <option value="feature">Yêu cầu tính năng</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Vui lòng chọn chủ đề.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label for="message" class="form-label fw-bold">
+                                        <i class="fas fa-comment me-2"></i>Nội dung tin nhắn *
+                                    </label>
+                                    <textarea class="form-control" 
+                                              id="message" 
+                                              name="message" 
+                                              rows="6" 
+                                              placeholder="Nhập nội dung tin nhắn của bạn..."
+                                              required></textarea>
+                                    <div class="invalid-feedback">
+                                        Vui lòng nhập nội dung tin nhắn.
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="agree" name="agree" required>
+                                        <label class="form-check-label" for="agree">
+                                            Tôi đồng ý với <a href="#" class="text-primary">điều khoản sử dụng</a> và <a href="#" class="text-primary">chính sách bảo mật</a> *
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            Vui lòng đồng ý với điều khoản.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4 d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Gửi tin nhắn
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-4">
+                    <div class="row g-4">
+                        <!-- Contact Details -->
+                        <div class="col-12">
+                            <div class="card border-0 h-100">
+                                <div class="card-body p-4">
+                                    <h4 class="fw-bold mb-4 text-center">
+                                        <i class="fas fa-address-book text-primary me-2"></i>
+                                        Thông tin liên hệ
+                                    </h4>
+                                    
+                                    <div class="contact-item mb-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0">
+                                                <div class="rounded-circle bg-primary p-3 text-white">
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="fw-bold mb-1">Địa chỉ</h6>
+                                                <p class="text-muted mb-0">
+                                                    123 Đường ABC, Quận XYZ<br>
+                                                    Thành phố Hồ Chí Minh, Việt Nam
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contact-item mb-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0">
+                                                <div class="rounded-circle bg-success p-3 text-white">
+                                                    <i class="fas fa-phone"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="fw-bold mb-1">Điện thoại</h6>
+                                                <p class="text-muted mb-0">
+                                                    <a href="tel:+84123456789" class="text-decoration-none">
+                                                        (+84) 123 456 789
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contact-item mb-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0">
+                                                <div class="rounded-circle bg-warning p-3 text-white">
+                                                    <i class="fas fa-envelope"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="fw-bold mb-1">Email</h6>
+                                                <p class="text-muted mb-0">
+                                                    <a href="mailto:info@javaapp.pro" class="text-decoration-none">
+                                                        info@javaapp.pro
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contact-item">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0">
+                                                <div class="rounded-circle bg-info p-3 text-white">
+                                                    <i class="fas fa-clock"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="fw-bold mb-1">Giờ làm việc</h6>
+                                                <p class="text-muted mb-0">
+                                                    Thứ 2 - Thứ 6: 8:00 - 17:00<br>
+                                                    Thứ 7: 8:00 - 12:00
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Media -->
+                        <div class="col-12">
+                            <div class="card border-0">
+                                <div class="card-body p-4 text-center">
+                                    <h5 class="fw-bold mb-4">
+                                        <i class="fas fa-share-alt text-primary me-2"></i>
+                                        Kết nối với chúng tôi
+                                    </h5>
+                                    
+                                    <div class="d-flex justify-content-center gap-3">
+                                        <a href="#" class="btn btn-outline-primary btn-lg rounded-circle" style="width: 50px; height: 50px;">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-info btn-lg rounded-circle" style="width: 50px; height: 50px;">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-danger btn-lg rounded-circle" style="width: 50px; height: 50px;">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-primary btn-lg rounded-circle" style="width: 50px; height: 50px;">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="container pb-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-white mb-3">
+                    <i class="fas fa-question-circle me-3"></i>Câu hỏi thường gặp
+                </h2>
+                <p class="lead text-white-50">Những câu hỏi phổ biến của người dùng</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-0 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3">
+                                <i class="fas fa-question text-primary me-2"></i>
+                                Làm thế nào để chạy ứng dụng?
+                            </h5>
+                            <p class="text-muted">
+                                Bạn có thể chạy ứng dụng bằng lệnh <code>./mvnw spring-boot:run</code> 
+                                trong terminal hoặc command prompt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-0 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3">
+                                <i class="fas fa-question text-success me-2"></i>
+                                Tôi có thể tùy chỉnh giao diện không?
+                            </h5>
+                            <p class="text-muted">
+                                Có, bạn có thể chỉnh sửa các file CSS và template Thymeleaf 
+                                để tùy chỉnh giao diện theo ý muốn.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-0 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3">
+                                <i class="fas fa-question text-warning me-2"></i>
+                                Ứng dụng có lưu dữ liệu vĩnh viễn không?
+                            </h5>
+                            <p class="text-muted">
+                                Hiện tại dữ liệu được lưu trong bộ nhớ và sẽ mất khi khởi động lại. 
+                                Bạn có thể tích hợp database để lưu trữ vĩnh viễn.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-0 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3">
+                                <i class="fas fa-question text-info me-2"></i>
+                                Làm sao để báo cáo lỗi?
+                            </h5>
+                            <p class="text-muted">
+                                Bạn có thể sử dụng form liên hệ trên trang này và chọn "Báo lỗi" 
+                                làm chủ đề để gửi thông tin chi tiết về lỗi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Form validation
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        } else {
+                            // Show success message
+                            event.preventDefault();
+                            showSuccessMessage();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+        function showSuccessMessage() {
+            const form = document.querySelector('form');
+            const successHtml = `
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <strong>Cảm ơn bạn!</strong> Tin nhắn của bạn đã được gửi thành công. 
+                    Chúng tôi sẽ phản hồi trong thời gian sớm nhất.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            form.insertAdjacentHTML('beforebegin', successHtml);
+            form.reset();
+            form.classList.remove('was-validated');
+        }
+    </script>
+</body>
+</html> 
